@@ -1,12 +1,17 @@
-// Animación de botón al pasar el mouse
-const botonAnimado = document.querySelector("button");
-if (botonAnimado) {
-    botonAnimado.addEventListener("mouseenter", () => {
-        botonAnimado.style.transform = "scale(1.1)";
-        botonAnimado.style.transition = "transform 0.3s ease";
-    });
+//texto animacao
+document.addEventListener("DOMContentLoaded", function () {
+    const textoElemento = document.querySelector(".texto-animado");
+    const texto = textoElemento.textContent;
+    textoElemento.textContent = ""; // borra el texto para empezar desde 0
+    let index = 0;
 
-    botonAnimado.addEventListener("mouseleave", () => {
-        botonAnimado.style.transform = "scale(1)";
-    });
-}
+    function escribirTexto() {
+        if (index < texto.length) {
+            textoElemento.textContent += texto[index];
+            index++;
+            setTimeout(escribirTexto, 100); // velocidad de la animación
+        }
+    }
+
+    escribirTexto(); // Iniciar la animación xd
+});
