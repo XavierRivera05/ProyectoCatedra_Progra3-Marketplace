@@ -1,19 +1,12 @@
-document.addEventListener("DOMContentLoaded", () => {
-    const elements = document.querySelectorAll(".fade-in");
-    elements.forEach(el => {
-        el.style.opacity = 0;
-        el.style.transform = "translateY(20px)";
+// Animación de botón al pasar el mouse
+const botonAnimado = document.querySelector("button");
+if (botonAnimado) {
+    botonAnimado.addEventListener("mouseenter", () => {
+        botonAnimado.style.transform = "scale(1.1)";
+        botonAnimado.style.transition = "transform 0.3s ease";
     });
-    
-    const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.style.transition = "opacity 0.6s ease-out, transform 0.6s ease-out";
-                entry.target.style.opacity = 1;
-                entry.target.style.transform = "translateY(0)";
-            }
-        });
-    }, { threshold: 0.2 });
-    
-    elements.forEach(el => observer.observe(el));
-});
+
+    botonAnimado.addEventListener("mouseleave", () => {
+        botonAnimado.style.transform = "scale(1)";
+    });
+}
