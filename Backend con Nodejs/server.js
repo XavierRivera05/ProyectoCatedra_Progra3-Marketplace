@@ -1,17 +1,34 @@
-const express = require("express");
-const cors = require("cors");
+const express = require('express');
+const cors = require('cors'); //pirulillo
+const path = require('path');
 
-const app = express();
-app.use(express.json()); // habilita JSON en el servidor
-app.use(cors()); // habilita CORS para permitir peticiones del frontend
+const app = express(); //el expreso del cecot
+const PORT = 3000;
 
-// ruta de prueba
-app.get("/", (req, res) => {
-    res.send("Servidor funcionando correctamente en expresso");
+app.use(cors());
+
+// servir archivos estáticos desde "Frontend con Nodejs/public"
+app.use(express.static(path.join(__dirname, '..', 'Frontend con Nodejs', 'public')));
+
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, '..', 'Frontend con Nodejs', 'public', 'index.html'));
 });
 
-// iniciar servidor en el puerto a la 3000
-const PORT = 3000;
+// ruta raíz que carga el index.html
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'Frontend con Nodejs', 'public', 'index.html'));
+});
+
+// ruta de la API fantastic
+app.get('/api/productos', (req, res) => {
+  const productos = [
+    { id: 1, nombre: 'Café', precio: 5 },
+    { id: 2, nombre: 'Pan dulce', precio: 2 },
+    { id: 3, nombre: 'Marquesote', precio: 3 }
+  ];
+  res.json(productos);
+});
+
 app.listen(PORT, () => {
-    console.log(`Se está ejecutando en http://localhost:${PORT}`);
+  console.log(`Servidor iniciado en http://localhost:${PORT}`);
 });
