@@ -84,3 +84,19 @@ CREATE DATABASE MarketplacePagWeb;
      CONSTRAINT FK_VistaProducto FOREIGN KEY (producto_id) REFERENCES Producto(id)
  );
  GO
+
+ --primero lo primero, insertar usuario XD
+ INSERT INTO Usuario (nombre, correo, contrasena, tipo) 
+VALUES ('Pepito PechoAbierto', 'pepillo@gmail.com', '1234', 'comprador');
+
+
+ --Toca insertar datos a la tabla productos para mostrar las imágenes :I
+INSERT INTO Producto (nombre, descripcion, precio, stock, vendedor_id, imagen_url)
+VALUES 
+('Case', 'Case para PC gamer', 90.00, 120, 2, '/Imagenes/case.png'),
+('Cuadro','Cuadro elegante',5.00,5,2, '/Imagenes/cuadroXD.png'),
+('GTA IV','Videojuego PS3',25.00,10,2, '/Imagenes/gta4.png'),
+('Playstation 4','Consola de juegos',180.00,40,2, '/Imagenes/playstation4.png'),
+('Nintendo Switch','Consola de juegos',180.00,5,2, '/Imagenes/switch.png'),
+('Peluche de Yoshi','Peluche',5.00,20,2, '/Imagenes/yoshi.png');
+
