@@ -18,4 +18,4 @@ Este es el proyecto de cátedra relacionado con las vistas frontend, hecho por m
 
 # autores
 
-Todos los involucrados en el grupo (preguntar por Romilio).
+Todos los del grupo "supuestamente" (preguntar por Romilio)
