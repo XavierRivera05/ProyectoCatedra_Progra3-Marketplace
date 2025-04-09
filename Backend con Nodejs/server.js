@@ -22,13 +22,15 @@ app.get('/', (req, res) => {
 });
 
 // ruta de la API fantastic
-app.get('/api/productos', (req, res) => {
-  const productos = [
-    { id: 1, nombre: 'Café', precio: 5 },
-    { id: 2, nombre: 'Pan dulce', precio: 2 },
-    { id: 3, nombre: 'Marquesote', precio: 3 }
-  ];
-  res.json(productos);
+app.get('/api/productos', async (req, res) => {
+  try {
+    const pool = await sql.connect(config);
+    const result = await pool.request().query('SELECT * FROM Producto'); // ajusta si la tabla se llama diferente
+    res.json(result.recordset); // devuelve los productos reales
+  } catch (error) {
+    console.error('Error al obtener los productos:', error);
+    res.status(500).json({ mensaje: 'Error al obtener los productos' });
+  }
 });
 
 app.listen(PORT, () => {
