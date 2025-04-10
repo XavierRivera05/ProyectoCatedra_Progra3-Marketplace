@@ -1,9 +1,6 @@
-# proyecto de frontend así bien picoson
+# proyecto de frontend
 
-Este es el proyecto de cátedra relacionado con las vistas frontend, hecho por mí, adivina quién es mí.
-
-# nose
- El primer paso es clonar el repositorio en github desktop, así se tiene el acceso a la página.
+Este es el proyecto de cátedra relacionado con las vistas frontend.
 
 # tecno
 -HTML5
@@ -18,4 +15,4 @@ Este es el proyecto de cátedra relacionado con las vistas frontend, hecho por m
 
 # autores
 
-Todos los del grupo "supuestamente" (preguntar por Romilio)
+yo
