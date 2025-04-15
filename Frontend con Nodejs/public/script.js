@@ -9,13 +9,13 @@ window.addEventListener("DOMContentLoaded", () => {
       data.forEach(producto => {
         const card = document.createElement('div');
         card.classList.add('producto-card'); // por si luego se usa el coso de carritos
-
+        //esto es del carrito
         card.innerHTML = `
           <h3>${producto.nombre}</h3>
           <p>${producto.descripcion}</p>
           <p>Precio: $${producto.precio}</p>
           <img src="${producto.imagen_url}" alt="${producto.nombre}" width="200">
-          <button class="btn-agregar">Agregar al carrito</button>
+          <button class="btn-agregar"> Preferidos </button>
           <hr/>
         `;
 
