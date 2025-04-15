@@ -9,15 +9,19 @@ window.addEventListener("DOMContentLoaded", () => {
       data.forEach(producto => {
         const card = document.createElement('div');
         card.classList.add('producto-card'); // por si luego se usa el coso de carritos
-        //esto es del carrito
+       
+        //esto es del carrito XD
         card.innerHTML = `
-          <h3>${producto.nombre}</h3>
-          <p>${producto.descripcion}</p>
-          <p>Precio: $${producto.precio}</p>
-          <img src="${producto.imagen_url}" alt="${producto.nombre}" width="200">
-          <button class="btn-agregar"> Preferidos </button>
-          <hr/>
-        `;
+        <div class="card shadow-sm" style="width: 18rem;">
+          <img src="${producto.imagen_url}" class="card-img-top" alt="${producto.nombre}">
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">${producto.nombre}</h5>
+            <p class="card-text">${producto.descripcion}</p>
+            <p class="card-text fw-bold">Precio: $${producto.precio}</p>
+            <button class="btn btn-outline-primary mt-auto btn-agregar"> Añadir a preferidos </button>
+          </div>
+        </div>
+      `;
 
         contenedor.appendChild(card);
       });

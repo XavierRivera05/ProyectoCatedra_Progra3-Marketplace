@@ -1,68 +1,92 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title> Marquesote </title>
-        <link rel = "stylesheet" href = "styles.css">
-    </head>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title> Marquesote </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
 
-    <body>
-        <nav> 
-            <ul> 
-                <li> <a href="#nuevo-usuario">Nuevo Usuario</a></li>
-                <li><a href="#usuario-registrado">Registros</a></li>
-                <li><a href="#vista-principal">Vista</a></li>
-                <li><a href="#vista-cliente">Cliente</a></li>
-                <li><a href="#vista-comprador">Comprador</a></li>
-                <li><a href="#favoritos">Preferidos</a></li>
-                <li><a href="#producto">Producto</a></li>
-            </ul>
-        </nav>
+<body class="bg-light">
+    
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary mb-4">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Marquesote</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="#nuevo-usuario">Nuevo Usuario</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#usuario-registrado">Registros</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#vista-principal">Vista</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#vista-cliente">Cliente</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#vista-comprador">Comprador</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#favoritos">Preferidos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#producto">Producto</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
-        <section id="nuevo-usuario">
-            <h2 class = "texto-animado">Registro de usuario</h2>
+    <div class="container">
+        <section id="nuevo-usuario" class="mb-5">
+            <h2 class="mb-3">Registro de usuario</h2>
             <form>
-                <input type="text" placeholder="Nombre" required>
-                <input type="email" placeholder="Correo" required>
-                <input type="password" placeholder="Contraseña" required>
-                <button type="submit">Listo</button>
+                <div class="mb-3">
+                    <input type="text" class="form-control" placeholder="Nombre" required>
+                </div>
+                <div class="mb-3">
+                    <input type="email" class="form-control" placeholder="Correo" required>
+                </div>
+                <div class="mb-3">
+                    <input type="password" class="form-control" placeholder="Contraseña" required>
+                </div>
+                <button type="submit" class="btn btn-success">Listo</button>
             </form>
         </section>
-        
-        <section id="usuario-registrado">
-            <h2>Iniciar sesión</h2>
+
+        <section id="usuario-registrado" class="mb-5">
+            <h2 class="mb-3">Iniciar sesión</h2>
             <form>
-                <input type="email" placeholder="Correo" required>
-                <input type="password" placeholder="Contraseña" required>
-                <button type="submit">Listo</button>
+                <div class="mb-3">
+                    <input type="email" class="form-control" placeholder="Correo" required>
+                </div>
+                <div class="mb-3">
+                    <input type="password" class="form-control" placeholder="Contraseña" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Iniciar sesión</button>
             </form>
         </section>
-        
-        <section id="vista-principal">
+
+        <section id="vista-principal" class="mb-5">
             <h2>¡Bienvenido al marketplace!</h2>
             <p>Inicia tu gloriosa búsqueda de productos.</p>
         </section>
-        
-        <section id="vista-cliente">
+
+        <section id="vista-cliente" class="mb-5">
             <h2>Vista cliente</h2>
             <p>Productos y configuraciones del cliente.</p>
         </section>
-        
-        <section id="vista-comprador">
+
+        <section id="vista-comprador" class="mb-5">
             <h2>Vista comprador</h2>
             <p>Compra y pedidos.</p>
         </section>
-        
-        <section id="favoritos">
+
+        <section id="favoritos" class="mb-5">
             <h2>Preferidos</h2>
             <p>Lista de productos preferidos.</p>
         </section>
-        
-        <section id="producto">
-            <h1>Productos disponibles.</h1>
-            <div id="contenedor-productos"></div>
+
+        <section id="producto" class="mb-5">
+            <h2>Productos disponibles</h2>
+            <div id="contenedor-productos" class="row g-4">
+            </div>
         </section>
+    </div>
 
-        <script src = "script.js"></script>
-
-    </body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
 </html>
