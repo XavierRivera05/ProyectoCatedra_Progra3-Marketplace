@@ -1,31 +1,37 @@
 window.addEventListener("DOMContentLoaded", () => {
-    fetch("http://localhost:3000/api/productos")
-      .then(response => response.json())
-      .then(data => {
-        console.log(data);
-        // talvez funcione esta cosa
-      })
-      .catch(error => console.error("Error:", error));
-  });
+  fetch("http://localhost:3000/api/productos")
+    .then(response => response.json())
+    .then(data => {
+      console.log("Productos recibidos:", data);
 
-//petición a la API cocacolastic
-fetch('http://localhost:3000/api/productos')
-  .then(response => response.json())
-  .then(data => {
-    const contenedor = document.getElementById('contenedor-productos'); // un div donde se mostrarán los productos productosos
+      const contenedor = document.getElementById('contenedor-productos'); // Asegúrate que este div exista
 
-    data.forEach(producto => {
-      const card = document.createElement('div');
-      card.innerHTML = `
-        <h3>${producto.nombre}</h3>
-        <p>${producto.descripcion}</p>
-        <p>Precio: $${producto.precio}</p>
-        <img src="${producto.imagen_url}" alt="${producto.nombre}" width="200">
-        <hr/>
-      `;
-      contenedor.appendChild(card);
+      data.forEach(producto => {
+        const card = document.createElement('div');
+        card.classList.add('producto-card'); // por si luego se usa el coso de carritos
+
+        card.innerHTML = `
+          <h3>${producto.nombre}</h3>
+          <p>${producto.descripcion}</p>
+          <p>Precio: $${producto.precio}</p>
+          <img src="${producto.imagen_url}" alt="${producto.nombre}" width="200">
+          <button class="btn-agregar">Agregar al carrito</button>
+          <hr/>
+        `;
+
+        contenedor.appendChild(card);
+      });
+
+      // Esto va a servir para después cabeza de bolillo viejo
+      const botones = document.querySelectorAll('.btn-agregar');
+      botones.forEach((btn, index) => {
+        btn.addEventListener('click', () => {
+          alert(`Producto agregado: ${data[index].nombre}`);
+          // todo esto es para el carrito del fierro viejo
+        });
+      });
+    })
+    .catch(error => {
+      console.error("Error al cargar los productos :(", error);
     });
-  })
-  .catch(error => {
-    console.error('Ha ocurrido un error a la hora de mostrar los productos :(', error);
-  });
+});
