@@ -4,7 +4,7 @@ const config = {
     server: 'localhost\\SQLEXPRESS', // esta onda me daba error XDDDD
     database: 'MarketplacePagWeb',
     options: {
-        encrypt: false, // Si estás usando SQL Server local, esto puede ir en false
+        encrypt: false, 
         trustServerCertificate: true // Para evitar errores de certificados en local
     }
 };
