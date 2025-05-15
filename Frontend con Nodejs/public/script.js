@@ -152,6 +152,7 @@ window.addEventListener("DOMContentLoaded", () => {
       if (response.ok) {
         alert(`Bienvenido, ${result.usuario.nombre}!`);
         localStorage.setItem('usuario', JSON.stringify(result.usuario));
+        mostrarVistaUsuario(result.usuario);
       } else {
         alert(result.mensaje);
       }
@@ -160,4 +161,27 @@ window.addEventListener("DOMContentLoaded", () => {
       alert('Hubo un error al iniciar sesión.');
     }
   });
+
+  // MOSTRAR VISTA SEGÚN EL TIPO DE USUARIO
+  function mostrarVistaUsuario(usuario) {
+    const vistaCliente = document.getElementById('vista-cliente');
+    const vistaComprador = document.getElementById('vista-comprador');
+
+    vistaCliente.style.display = 'none';
+    vistaComprador.style.display = 'none';
+
+    if (usuario.tipo === 'cliente') {
+      vistaCliente.style.display = 'block';
+    } else if (usuario.tipo === 'comprador') {
+      vistaComprador.style.display = 'block';
+    }
+  }
+
+  // Al cargar la página, verificar si hay sesión activa
+  const usuarioGuardado = localStorage.getItem('usuario');
+  if (usuarioGuardado) {
+    const usuario = JSON.parse(usuarioGuardado);
+    mostrarVistaUsuario(usuario);
+  }
 });
+
